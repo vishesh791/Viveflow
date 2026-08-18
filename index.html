@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VibeFlow — music from your own crates</title>
+  <meta name="description" content="VibeFlow is an independent, folder-powered music player. Load your own crates, queue tracks, and keep the flow going.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/utility.css">
+</head>
+
+<body>
+  <div class="app-shell flex">
+
+    <!-- ============ RAIL ============ -->
+    <aside class="rail" id="rail">
+      <div class="rail-close">
+        <button id="railClose" aria-label="Close menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="brand-panel rounded">
+        <div class="brand">
+          <svg class="brand-mark" width="30" height="24" viewBox="0 0 30 24" aria-hidden="true">
+            <rect class="bar" x="0" y="8" width="4" height="8" rx="2" />
+            <rect class="bar" x="7" y="3" width="4" height="18" rx="2" />
+            <rect class="bar" x="14" y="0" width="4" height="24" rx="2" />
+            <rect class="bar" x="21" y="5" width="4" height="14" rx="2" />
+          </svg>
+          <span class="brand-name">Vibe<em>Flow</em></span>
+        </div>
+
+        <ul class="rail-nav">
+          <li class="active" data-nav="discover">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 12L10 4L20 8L14 20L4 12Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+              <circle cx="12" cy="12" r="1.6" fill="currentColor" />
+            </svg>
+            Discover
+          </li>
+          <li data-nav="search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.6" />
+              <path d="M20 20L16 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+            Search
+          </li>
+        </ul>
+      </div>
+
+      <div class="queue-panel rounded">
+        <div class="queue-heading">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M4 6H16M4 12H16M4 18H12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            <circle cx="20" cy="18" r="2" fill="currentColor" />
+            <path d="M20 18V7L22 6.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+          Now queued
+        </div>
+
+        <div class="songList">
+          <ul class="trackList"></ul>
+        </div>
+
+        <div class="rail-footer">
+          <span>VibeFlow</span>
+          <span>Local crates only</span>
+          <span>No accounts, no tracking</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============ STAGE ============ -->
+    <main class="stage rounded">
+      <div class="topbar">
+        <div class="topbar-nav">
+          <button class="rail-toggle" id="railToggle" aria-label="Open menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 7H20M4 12H20M4 17H14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </button>
+          <button class="scrub-btn" aria-label="Previous section">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button class="scrub-btn" aria-label="Next section">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn btn-ghost">Create account</button>
+          <button class="btn btn-solid">Sign in</button>
+        </div>
+      </div>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Folder-powered playback</span>
+          <h1>Your crates. <em>Your flow.</em></h1>
+          <p>VibeFlow reads straight from the crates you keep in <code>/songs/</code> — no uploads, no algorithmic
+            feed. Pick a crate below and let it play through.</p>
+        </div>
+        <svg class="hero-wave" viewBox="0 0 220 96" aria-hidden="true">
+          <rect class="bar" x="0" y="40" width="10" height="30" rx="5" />
+          <rect class="bar" x="16" y="20" width="10" height="60" rx="5" />
+          <rect class="bar" x="32" y="4" width="10" height="88" rx="5" />
+          <rect class="bar" x="48" y="26" width="10" height="50" rx="5" />
+          <rect class="bar" x="64" y="12" width="10" height="72" rx="5" />
+          <rect class="bar" x="80" y="34" width="10" height="34" rx="5" />
+          <rect class="bar" x="96" y="0" width="10" height="96" rx="5" />
+          <rect class="bar" x="112" y="24" width="10" height="54" rx="5" />
+          <rect class="bar" x="128" y="10" width="10" height="76" rx="5" />
+          <rect class="bar" x="144" y="30" width="10" height="40" rx="5" />
+          <rect class="bar" x="160" y="18" width="10" height="64" rx="5" />
+          <rect class="bar" x="176" y="38" width="10" height="30" rx="5" />
+          <rect class="bar" x="192" y="6" width="10" height="84" rx="5" />
+          <rect class="bar" x="208" y="28" width="10" height="46" rx="5" />
+        </svg>
+      </section>
+
+      <section class="discover">
+        <div class="section-label">
+          <h2>Browse crates</h2>
+          <span id="crateCount"></span>
+        </div>
+        <div class="cardContainer"></div>
+      </section>
+
+      <!-- ============ DECK (player) ============ -->
+      <div class="deck rounded" role="region" aria-label="Player">
+        <div class="deck-seek" id="deckSeek" aria-label="Seek"></div>
+
+        <div class="deck-body">
+          <div class="deck-meta">
+            <div class="songinfo">Pick a crate to start the flow</div>
+            <div class="deck-tag">VibeFlow deck</div>
+          </div>
+
+          <div class="deck-transport">
+            <button class="transport-btn" id="previous" aria-label="Previous track">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M18 5L9 12L18 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <rect x="5" y="5" width="2" height="14" rx="1" fill="currentColor" />
+              </svg>
+            </button>
+            <button class="transport-btn" id="play" aria-label="Play">
+              <svg id="playIcon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M7 5L19 12L7 19V5Z" fill="currentColor" />
+              </svg>
+            </button>
+            <button class="transport-btn" id="next" aria-label="Next track">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M6 5L15 12L6 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <rect x="17" y="5" width="2" height="14" rx="1" fill="currentColor" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="deck-right">
+            <div class="songtime">00:00 / 00:00</div>
+            <div class="volume">
+              <span class="volume-icon" id="volumeIcon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 9V15H8L13 20V4L8 9H4Z" fill="currentColor" />
+                  <path d="M16.5 8.5C17.5 9.6 18 10.7 18 12C18 13.3 17.5 14.4 16.5 15.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+              </span>
+              <div class="range">
+                <input type="range" min="0" max="100" value="10" id="volumeSlider" aria-label="Volume">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>

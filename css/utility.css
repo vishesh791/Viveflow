@@ -1,0 +1,46 @@
+/* VibeFlow — low-level utilities & scrollbar theming */
+
+.flex { display: flex; }
+.justify-center { justify-content: center; }
+.items-center { align-items: center; }
+
+.rounded { border-radius: var(--radius-md); }
+.m-1 { margin: 5px; }
+.p-1 { padding: 10px; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--surface-raised);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+* {
+  scrollbar-color: var(--surface-raised) transparent;
+}
+
+/* Respect reduced motion everywhere */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
